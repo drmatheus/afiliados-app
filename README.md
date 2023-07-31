@@ -1,34 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Bem-Vindo ao Afiliados!
 
-## Getting Started
+Um normalizador de planilhas!
 
-First, run the development server:
+## Tecnologias Utilizadas 👨‍💻👨‍💻
+
+Nesse projeto foi utilizado:
+
+- [NodeJS](https://nodejs.org/en/)
+
+- [TypeScript](https://www.typescriptlang.org/)
+
+- [Next.js](https://nextjs.org/)
+
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## Funcionalidades do Projeto
+
+Conta não-logada:
+
+- Criar uma conta
+- Fazer login no website
+
+Conta logada:
+
+- Normalizar arquivos .txt (arquivo de teste: sales.txt)
+- Salvar no banco de dados
+- Visualizar dados cadastrados pelo usuario logado
+- Deslogar
+
+## Arquitetura do projeto
+
+**Rotas** Cada página do projeto está localizada diretamente dentro do diretório do app, com o nome correspondente à rota acessível no website. Por exemplo, a página de login pode ser encontrada em app/login.tsx e corresponde à rota /login.
+
+**/components:** Aqui encontram-se os componentes reutilizáveis da aplicação. Componentes como cabeçalhos, rodapés e outros elementos compartilhados são colocados nesta pasta para facilitar a manutenção e a reutilização do código.
+
+**/interfaces:** Neste diretorio ficam as interfaces que se repetem durante o codigo. (Exceto as interfaces de props que ficam juntas dos componentes)
+
+**/services:** Diretório para funções utilitárias e helpers. Essas funções podem ser usadas em diferentes partes do projeto.
+
+## Rodar o projeto localmente
+
+- Certifique-se de ter o Node.js instalado em seu sistema.
+
+- Inicie seu terminal (git bash ou powershell)
+
+- Instale as dependências com o comando abaixo:
+
+```bash
+npm install
+```
+
+- Digite esse comando pra rodar o server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Visualize o projeto no link => [http://localhost:3001](http://localhost:3001).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ATENÇÃO: Para o projeto rodar localmente é necessário que esse projeto está rodando junto com a back-end do projeto (https://github.com/drmatheus/afiliados-api) e que tenha sido iniciada DEPOIS da API ter sido iniciada;
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Rodando o Projeto em Docker
 
-## Learn More
+- Certifique-se de ter o Docker instalado em seu sistema.
 
-To learn more about Next.js, take a look at the following resources:
+- Construa a imagem Docker usando o comando:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+    docker build -t [nome_da_imagem] .
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Execute o contêiner com o comando:
 
-## Deploy on Vercel
+```bash
+    docker run -p 3001:3001 [nome_da_imagem]
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Visualize o projeto no link => [http://localhost:3001](http://localhost:3001).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## MADE BY:
+
+- [Matheus Dávila](https://github.com/drmatheus)
