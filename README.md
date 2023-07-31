@@ -62,18 +62,18 @@ ATENÇÃO: Para o projeto rodar localmente é necessário que esse projeto está
 
 ## Rodando o Projeto em Docker
 
-- Certifique-se de ter o Docker instalado em seu sistema.
+- Certifique-se de ter o Docker instalado em seu sistema e a API estar rodando.
 
 - Construa a imagem Docker usando o comando:
 
 ```bash
-    docker build -t [nome_da_imagem] .
+    docker build -t affiliated-app .
 ```
 
 - Execute o contêiner com o comando:
 
 ```bash
-    docker run -p 3001:3001 [nome_da_imagem]
+    docker run -p 3001:3000 affiliated-app
 ```
 
 - Visualize o projeto no link => [http://localhost:3001](http://localhost:3001).

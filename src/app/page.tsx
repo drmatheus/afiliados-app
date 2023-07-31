@@ -10,6 +10,7 @@ import { OperationResume } from "./components/operationResume";
 import { IOperation } from "./interfaces";
 import { BiErrorCircle } from "react-icons/bi";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [file, setFile] = useState<File | null>();
@@ -26,7 +27,10 @@ export default function Home() {
         setOperations(data);
         setIsLoading(false);
         setIsLogged(true);
-      } catch (error) {}
+      } catch (error) {
+        setIsLogged(false);
+      }
+      setIsLoading(false);
     };
     getOperations();
   }, [isLoading]);
@@ -34,6 +38,8 @@ export default function Home() {
   useEffect(() => {
     setErrors([]);
   }, [file]);
+
+  const navigate = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -57,7 +63,7 @@ export default function Home() {
     }
   };
 
-  console.log(Object.entries(error));
+  if (!isLoading && !isLogged) navigate.push("/login");
 
   return (
     <main className="flex min-h-screen flex-col items-center pt-24 gap-8 bg-gray-100">
